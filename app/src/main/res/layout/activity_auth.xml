@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context=".AuthActivity">
+
+    <!-- Gambar / Logo Aplikasi -->
+    <LinearLayout
+        android:id="@+id/titleSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/illustration_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/logo1"
+            android:contentDescription="@string/app_name"
+            android:layout_marginTop="-60dp"
+            android:layout_marginBottom="-30dp" />
+    </LinearLayout>
+
+    <!-- 🧩 Container untuk Fragment (Signup / ForgotPassword) -->
+    <FrameLayout
+        android:id="@+id/auth_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/white"
+        android:elevation="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- CardView untuk form login -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loginCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="6dp"
+        android:backgroundTint="#FDF3F3"
+        app:layout_constraintTop_toBottomOf="@id/titleSection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <!-- Tab Login / Signup -->
+            <LinearLayout
+                android:id="@+id/tabPanel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:background="@drawable/bg_tab_panel"
+                android:layout_margin="20dp">
+
+                <Button
+                    android:id="@+id/btnLoginTab"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Log in"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_tab_left_active"
+                    android:padding="8dp"
+                    android:elevation="12dp"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/btnSignupTab"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Sign Up"
+                    android:textStyle="bold"
+                    android:textColor="@color/pink"
+                    android:background="@drawable/bg_tab_right_inactive"
+                    android:padding="8dp"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+
+            <!-- Input Email -->
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter email or username"
+                android:background="@android:color/transparent"
+                android:textColor="#000000"
+                android:textColorHint="#808080"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="#000000" />
+
+            <!-- Input Password + Icon Mata -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Password"
+                    android:textColor="#000000"
+                    android:textColorHint="#808080"
+                    android:background="@android:color/transparent"
+                    android:inputType="textPassword"
+                    android:paddingBottom="8dp"
+                    android:backgroundTint="#000000" />
+
+                <!-- Icon Mata (tanpa gambar, pakai emoji) -->
+                <TextView
+                    android:id="@+id/tvTogglePassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="\uD83D\uDC41"
+                    android:textSize="18sp"
+                    android:padding="8dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <!-- Forgot Password -->
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#E58B8B"
+                android:layout_gravity="end"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <!-- Tombol Login -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="LOGIN"
+                android:backgroundTint="#F5A9A9"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:padding="12dp"
+                app:cornerRadius="20dp" />
+
+            <!-- OR -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OR"
+                android:textColor="#A0A0A0"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Login dengan Sosial Media -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/btnGoogle"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/google_icon"
+                    android:background="@android:color/transparent"
+                    android:layout_marginEnd="0dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "205080196135",
+    "project_id": "bloombelly-3437a",
+    "storage_bucket": "bloombelly-3437a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205080196135:android:4c708006e0ff60c0b20a02",
+        "android_client_info": {
+          "package_name": "com.example.bloombelly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "205080196135-e8bsilr03vchhuospr5pr1v9ejvhvf25.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bloombelly",
+            "certificate_hash": "a35201f9233bf61d7d56b5cf3c9b7739b0dd0ae0"
+          }
+        },
+        {
+          "client_id": "205080196135-olqjdio4vnci4gqhle4kgag1dhuvbgj9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoCJd-H9Ms74KubvaPWYT6bi3lurrF1zo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "205080196135-olqjdio4vnci4gqhle4kgag1dhuvbgj9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

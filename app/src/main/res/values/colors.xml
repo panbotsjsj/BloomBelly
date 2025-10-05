@@ -1,0 +1,10 @@
+<resources>
+    <color name="primary">#F5A9A9</color>
+    <color name="primary_light">#2951C9</color>
+    <color name="pink">#FC85A2</color>
+    <color name="gray">#918888</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_80">#CCFFFFFF</color>     <!-- white 80% -->
+    <color name="white_60">#99FFFFFF</color>     <!-- white 60% -->
+    <color name="divider">#40FFFFFF</color>      <!-- garis bawah (transparan) -->
+</resources>
