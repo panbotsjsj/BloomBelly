@@ -23,6 +23,13 @@ android {
             targetCompatibility = JavaVersion.VERSION_11
         }
     }
+    buildFeatures {
+        viewBinding = true
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
 }
 
 dependencies {
@@ -41,6 +48,8 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:23.1.0")
     implementation("com.google.android.gms:play-services-auth:21.1.1")
     implementation("com.google.firebase:firebase-analytics:22.1.2")
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
 
 
     testImplementation(libs.junit)
