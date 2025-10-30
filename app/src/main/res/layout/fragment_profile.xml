@@ -1,34 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".fragment_menu.ProfileFragment">
+    android:padding="16dp"
+    android:background="#f5f5f5">
 
-    <!-- Bagian profil atas -->
-    <LinearLayout
-        android:id="@+id/profileHeader"
+    <!-- Header - Nama dengan Profile Picture dan Edit Button -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="24dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-            <Button
-                android:id="@+id/btnLogout"
-                android:layout_width="wrap_content"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Profile Picture -->
+            <ImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/profilpic"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profilpic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <!-- Edit Button -->
+            <ImageView
+                android:id="@+id/btnEditProfile"
+                android:layout_width="26dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_edit"
+                android:padding="5dp"
+                android:src="@drawable/btn_edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Nama -->
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Keluar"
-                android:textAllCaps="false"
-                android:textColor="#000000"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="8dp"
-                android:layout_gravity="center"/>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_vertical"
+                android:text="Rania Hapsari"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/btnEditProfile"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Menu Container -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/cardHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Ubah Password -->
+            <LinearLayout
+                android:id="@+id/btnUbahPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ubah Password"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <!-- Gunakan icon yang lebih umum -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textColor="#666666"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#eeeeee" />
+
+            <!-- Ubah Kehamilan -->
+            <LinearLayout
+                android:id="@+id/btnUbahKehamilan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ubah Kehamilan"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+
+                <!-- Gunakan icon yang lebih umum -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textColor="#666666"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#eeeeee" />
+
+            <!-- Keguguran -->
+            <LinearLayout
+                android:id="@+id/btnKeguguran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Keguguran"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+
+                <!-- Gunakan icon yang lebih umum -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textColor="#666666"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Button Logout -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FC85A2"
+        android:minWidth="160dp"
+        android:paddingStart="48dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="48dp"
+        android:paddingBottom="14dp"
+        android:text="Logout"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardMenu"
+        app:layout_constraintVertical_bias="0.048" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

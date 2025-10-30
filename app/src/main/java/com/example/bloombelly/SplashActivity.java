@@ -48,6 +48,7 @@ public class SplashActivity extends AppCompatActivity {
             intent = new Intent(SplashActivity.this, AuthActivity.class);
         }
 
+
         // --- AKHIR LOGIKA PENENTUAN AKTIVITAS ---
 
         startActivity(intent);
