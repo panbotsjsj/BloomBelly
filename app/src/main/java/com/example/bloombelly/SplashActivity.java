@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth; // Import untuk Firebase Authentication
 
 public class SplashActivity extends AppCompatActivity {
-    private static final long SPLASH_DURATION = 3000; // Durasi splash screen (3 detik)
+    private static final long SPLASH_DURATION = 2000; // Durasi splash screen (3 detik)
 
     // Deklarasi instance Firebase Auth
     private FirebaseAuth mAuth;
