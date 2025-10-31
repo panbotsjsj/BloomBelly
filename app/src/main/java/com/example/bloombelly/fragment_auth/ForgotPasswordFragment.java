@@ -10,12 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
+import com.example.bloombelly.AuthActivity;
 import com.example.bloombelly.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPasswordFragment extends Fragment {
@@ -25,13 +24,13 @@ public class ForgotPasswordFragment extends Fragment {
     private Button btnResetPassword;
     private TextView tvBackToLogin;
 
-    public ForgotPasswordFragment() {
-        // Konstruktor kosong wajib
-    }
+    public ForgotPasswordFragment() {}
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_forgot_password, container, false);
 
@@ -40,7 +39,6 @@ public class ForgotPasswordFragment extends Fragment {
         btnResetPassword = view.findViewById(R.id.btnResetPassword);
         tvBackToLogin = view.findViewById(R.id.tvBackToLogin);
 
-        // Tombol Kirim Tautan Reset
         btnResetPassword.setOnClickListener(v -> {
             String email = etForgotEmail.getText().toString().trim();
 
@@ -49,15 +47,25 @@ public class ForgotPasswordFragment extends Fragment {
                 return;
             }
 
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(getContext(), "Format email tidak valid.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            btnResetPassword.setEnabled(false);
+
             mAuth.sendPasswordResetEmail(email)
                     .addOnCompleteListener(task -> {
+                        btnResetPassword.setEnabled(true);
+
                         if (task.isSuccessful()) {
                             Toast.makeText(getContext(),
                                     "Tautan reset kata sandi telah dikirim ke email kamu.",
                                     Toast.LENGTH_LONG).show();
 
-                            // Opsional: kembali otomatis ke login setelah sukses
-                            getParentFragmentManager().popBackStack();
+                            if (getActivity() instanceof AuthActivity) {
+                                ((AuthActivity) getActivity()).showLoginView();
+                            }
                         } else {
                             Toast.makeText(getContext(),
                                     "Gagal mengirim tautan: " + task.getException().getMessage(),
@@ -66,10 +74,10 @@ public class ForgotPasswordFragment extends Fragment {
                     });
         });
 
-        // Tombol kembali ke Login
         tvBackToLogin.setOnClickListener(v -> {
-            FragmentManager fm = getParentFragmentManager();
-            fm.popBackStack(); // kembali ke fragment login sebelumnya
+            if (getActivity() instanceof AuthActivity) {
+                ((AuthActivity) getActivity()).showLoginView();
+            }
         });
 
         return view;
