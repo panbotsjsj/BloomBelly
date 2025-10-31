@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#fafafa"
+    android:fitsSystemWindows="true"
+    tools:context=".fragment_menu.UbahKehamilan">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header  -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <!-- Judul di tengah -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ubah Kehamilan"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#2C3E50"
+                android:gravity="center"
+                android:padding="16dp" />
+
+        </RelativeLayout>
+
+        <!-- Card Input HTP -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Label -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Masukkan HTP (Hari Terakhir Haid Pertama)"
+                    android:textSize="15sp"
+                    android:textColor="#5D6D7E"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Input Tanggal HTP - VERSI KEYBOARD -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="#D5DBDB"
+                    app:hintTextColor="#A6ACAF"
+                    app:endIconMode="none">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTanggalHTP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="52dp"
+                        android:hint="yyyy-mm-dd"
+                        android:inputType="number|date"
+                        android:textSize="15sp"
+                        android:textColor="#2C3E50"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Button Simpan -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSimpan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Simpan"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FC85A2"
+            app:cornerRadius="20dp"
+            android:paddingStart="48dp"
+            android:paddingEnd="48dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:layout_gravity="center_horizontal"
+            android:minWidth="160dp" />
+
+    </LinearLayout>
+</ScrollView>
